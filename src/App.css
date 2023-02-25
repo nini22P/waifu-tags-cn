@@ -1,0 +1,111 @@
+.search {
+  display: block;
+  font-size: 1.4rem;
+  border: solid 2px hsla(275, 41%, 60%, 0.25);
+  border-radius: 0.5rem;
+  color: #aaa;
+  outline: none;
+  text-align: center;
+  width: 90%;
+  margin: 1rem auto;
+  padding: 0.5rem;
+}
+
+.search:focus {
+  border: solid 2px hsla(275, 41%, 60%, 0.5);
+  color: #666;
+}
+
+::placeholder {
+  color: #aaa;
+}
+
+.tags {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag {
+  background-color: hsla(0, 0%, 93%, 0.1);
+  border: none;
+  border-radius: 0.5rem;
+  color: #666;
+  padding: 0.5rem;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin: 0.25rem 0.25rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.entag {
+  color: #aaa;
+}
+
+.tag:hover>.entag {
+  color: #fff;
+}
+
+.tag:active>.entag {
+  color: #666;
+}
+
+.tag:hover {
+  background-color: #A06EC3;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.tag:active {
+  background-color: #eee;
+  color: #666;
+  opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+  }
+
+  .search {
+    border: solid 2px hsla(275, 41%, 60%, 0.25);
+    background-color: #222;
+    color: #aaa;
+
+  }
+
+  ::placeholder {
+    color: #aaa;
+  }
+
+  .search:focus {
+    border: solid 2px hsla(275, 41%, 60%, 0.5);
+    color: #eee;
+  }
+
+  .tag {
+    background-color: #221;
+    color: #aaa;
+  }
+
+  .entag {
+    color: #777;
+  }
+
+  .tag:hover {
+    color: #fff;
+    opacity: 1;
+  }
+
+  .tag:hover>.entag {
+    color: #fff;
+    opacity: 1;
+  }
+
+}
