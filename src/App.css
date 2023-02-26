@@ -1,3 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+a {
+  color: green;
+  outline: none;
+  text-decoration: none;
+  width: 10rem;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: underline dotted;
+}
+
 .search {
   display: block;
   font-size: 1.4rem;
@@ -6,8 +26,8 @@
   color: #aaa;
   outline: none;
   text-align: center;
-  width: 90vw;
-  margin: 1.5rem auto;
+  width: 50%;
+  margin: 1rem;
   padding: 0.5rem;
 }
 
@@ -18,6 +38,11 @@
 
 ::placeholder {
   color: #aaa;
+}
+
+.tagNum {
+  width: 10rem;
+  text-align: center;
 }
 
 .tags {
@@ -108,4 +133,14 @@
     opacity: 1;
   }
 
+}
+
+@media screen and (max-width:768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .search {
+    width: 90%;
+  }
 }

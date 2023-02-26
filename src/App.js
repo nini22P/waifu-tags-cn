@@ -1,6 +1,16 @@
 import { useState } from 'react'
 import './App.css'
 
+const Header = ({ search, tagsNum, filteredNum }) => {
+  return (
+    <div className='header'>
+      <a href='https://github.com/nini22P/waifu-tags-cn'>访问 GitHub</a>
+      <input type='search' className='search' placeholder='搜索' onChange={search} />
+      <div className='tagNum'>{filteredNum} / {tagsNum}</div>
+    </div>
+  )
+}
+
 const Tag = ({ cn, en }) => {
   const copyTag = () => {
     navigator.clipboard.writeText(en)
@@ -16,11 +26,10 @@ const Tag = ({ cn, en }) => {
   )
 }
 
-const Tags = ({ data, keyWord }) => {
-  const filteredData = data.filter(tags => tags.cn.toLowerCase().indexOf(keyWord) !== -1 || tags.en.toLowerCase().indexOf(keyWord) !== -1)
+const Tags = ({ filteredData }) => {
   return (
     <div className='tags'>
-      {filteredData.slice(0, 2000).map((tag, i) => (
+      {filteredData.slice(0, 500).map((tag, i) => (
         <Tag key={i} cn={tag.cn} en={tag.en} />
       ))}
     </div>
@@ -34,13 +43,15 @@ function App() {
   const search = (keyWord) => {
     let queue;
     clearTimeout(queue);
-    queue = setTimeout(() => setKeyWord(keyWord.target.value.toLowerCase()), 1000);
+    queue = setTimeout(() => setKeyWord(keyWord.target.value.toLowerCase()), 250);
   }
+
+  const filteredData = data.filter(tags => tags.cn.toLowerCase().indexOf(keyWord) !== -1 || tags.en.toLowerCase().indexOf(keyWord) !== -1)
 
   return (
     <div className='App'>
-      <input type='search' className='search' placeholder='搜索' onChange={search} />
-      <Tags data={data} keyWord={keyWord} />
+      <Header search={search} tagsNum={data.length} filteredNum={filteredData.length} />
+      <Tags filteredData={filteredData} />
     </div>
   );
 }
