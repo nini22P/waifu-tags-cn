@@ -4,7 +4,7 @@ import './App.css'
 const Header = ({ search, tagsNum, filteredNum }) => {
   return (
     <div className='header'>
-      <a href='https://github.com/nini22P/waifu-tags-cn'>访问 GitHub</a>
+      <a href='https://github.com/nini22P/waifu-tags-cn'>GitHub</a>
       <input type='search' className='search' placeholder='搜索' onChange={search} />
       <div className='tagNum'>{filteredNum} / {tagsNum}</div>
     </div>
@@ -13,7 +13,7 @@ const Header = ({ search, tagsNum, filteredNum }) => {
 
 const Tag = ({ cn, en }) => {
   const copyTag = () => {
-    navigator.clipboard.writeText(en)
+    navigator.clipboard.writeText(en + ', ')
     console.log(en)
   }
   return (
@@ -40,13 +40,19 @@ function App() {
   const [keyWord, setKeyWord] = useState('')
   const data = require('./waifu-tags-cn.json')
 
+  const keyWordFilter = (keyWord) => {
+    if (keyWord.replace(/[ _]+/g, '') === '') return ''
+    else return keyWord.toLowerCase().replace(/[ _]+/g, '_')
+  }
+
   const search = (keyWord) => {
     let queue;
     clearTimeout(queue);
-    queue = setTimeout(() => setKeyWord(keyWord.target.value.toLowerCase()), 250);
+    queue = setTimeout(() => setKeyWord(keyWordFilter(keyWord.target.value)), 300);
   }
 
-  const filteredData = data.filter(tags => tags.cn.toLowerCase().indexOf(keyWord) !== -1 || tags.en.toLowerCase().indexOf(keyWord) !== -1)
+  const filteredData = data.filter(tag => tag.cn.toLowerCase().indexOf(keyWord) !== -1 || tag.en.toLowerCase().indexOf(keyWord) !== -1)
+
 
   return (
     <div className='App'>
