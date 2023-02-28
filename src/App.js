@@ -41,8 +41,8 @@ function App() {
   const data = require('./waifu-tags-cn.json')
 
   const keyWordFilter = (keyWord) => {
-    if (keyWord.replace(/[ _]+/g, '') === '') return ''
-    else return keyWord.toLowerCase().replace(/[ _]+/g, '_')
+    if (keyWord.replace(/[ ]+/g, '') === '') return ''
+    else return keyWord.toLowerCase().replace(/[ ]+/g, ' ')
   }
 
   const search = (keyWord) => {
