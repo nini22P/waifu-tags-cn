@@ -73,28 +73,34 @@ a:hover {
   -webkit-tap-highlight-color: transparent;
 }
 
+.tag:active {
+  background-color: #A06EC3;
+  color: #fff;
+  opacity: 0.5;
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
 .entag {
   color: #aaa;
 }
 
-.tag:hover>.entag {
-  color: #fff;
+@media(any-hover:hover) {
+  .tag:hover>.entag {
+    color: #fff;
+  }
 }
 
 .tag:active>.entag {
-  color: #666;
-}
-
-.tag:hover {
-  background-color: #A06EC3;
   color: #fff;
-  opacity: 0.5;
 }
 
-.tag:active {
-  background-color: #eee;
-  color: #666;
-  opacity: 0.5;
+@media(any-hover:hover) {
+  .tag:hover {
+    background-color: #A06EC3;
+    color: #fff;
+    opacity: 0.5;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -131,16 +137,17 @@ a:hover {
     color: #777;
   }
 
-  .tag:hover {
-    color: #fff;
-    opacity: 1;
-  }
+  @media(any-hover:hover) {
+    .tag:hover {
+      color: #fff;
+      opacity: 0.75;
+    }
 
-  .tag:hover>.entag {
-    color: #fff;
-    opacity: 1;
+    .tag:hover>.entag {
+      color: #fff;
+      opacity: 0.75;
+    }
   }
-
 }
 
 @media screen and (max-width:768px) {

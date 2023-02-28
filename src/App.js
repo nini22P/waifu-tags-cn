@@ -53,7 +53,6 @@ function App() {
 
   const filteredData = data.filter(tag => tag.cn.toLowerCase().indexOf(keyWord) !== -1 || tag.en.toLowerCase().indexOf(keyWord) !== -1)
 
-
   return (
     <div className='App'>
       <Header search={search} tagsNum={data.length} filteredNum={filteredData.length} />
