@@ -1,16 +1,41 @@
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
+  background-color: #a47ac3;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a47ac3;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
 .header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  padding: 1rem;
+  padding: 1rem 0;
+  -webkit-app-region: drag;
+  position: fixed;
+  background-color: #a47ac3;
+  left: env(titlebar-area-x, 0);
+  top: env(titlebar-area-y, 0);
+  width: env(titlebar-area-width, 100%);
 }
 
 a {
-  color: green;
+  color: #000;
   outline: none;
   text-decoration: none;
-  width: 10rem;
+  /* width: 10rem; */
   text-align: center;
 }
 
@@ -18,21 +43,27 @@ a:hover {
   text-decoration: underline dotted;
 }
 
+a:link {
+  -webkit-app-region: no-drag;
+}
+
 .search {
   display: block;
   font-size: 1.4rem;
-  border: solid 2px hsla(275, 41%, 60%, 0.25);
+  border: solid 2px hsla(275, 41%, 60%, 0.4);
   border-radius: 0.5rem;
   color: #aaa;
+  background-color: #eee;
   outline: none;
   text-align: center;
-  width: 50%;
-  margin: 1rem;
-  padding: 0.5rem;
+  width: 65%;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  -webkit-app-region: no-drag;
 }
 
 .search:focus {
-  border: solid 2px hsla(275, 41%, 60%, 0.5);
+  border: solid 2px hsla(275, 41%, 60%, 0.6);
   color: #666;
 }
 
@@ -40,20 +71,31 @@ a:hover {
   color: #aaa;
 }
 
+.search:focus::placeholder {
+  color: #eee;
+}
+
 ::-webkit-search-cancel-button {
   display: none;
 }
 
 .tagNum {
-  width: 10rem;
+  /* width: 10rem; */
   text-align: center;
+  color: #000;
 }
 
 .tags {
+  background-color: #fff;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: auto;
+  height: calc(100vh - 5rem);
+  margin-top: 5rem;
+  padding-top: 1rem;
+  box-shadow: inset 0 0 .5rem 0 #0003;
 }
 
 .tag {
@@ -74,7 +116,7 @@ a:hover {
 }
 
 .tag:active {
-  background-color: #A06EC3;
+  background-color: #a47ac3;
   color: #fff;
   opacity: 0.5;
   -webkit-transform: scale(0.95);
@@ -97,14 +139,15 @@ a:hover {
 
 @media(any-hover:hover) {
   .tag:hover {
-    background-color: #A06EC3;
+    background-color: #a47ac3;
     color: #fff;
     opacity: 0.5;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+
+  ::-webkit-scrollbar-track {
     background-color: #222;
   }
 
@@ -121,15 +164,19 @@ a:hover {
 
   .search:focus {
     border: solid 2px hsla(275, 41%, 60%, 0.5);
-    color: #eee;
+    color: #bbb;
   }
 
-  .tagNum {
-    color: #aaa;
+  .search:focus::placeholder {
+    color: #222;
+  }
+
+  .tags {
+    background-color: #222;
   }
 
   .tag {
-    background-color: #221;
+    background-color: #222;
     color: #aaa;
   }
 
@@ -153,9 +200,14 @@ a:hover {
 @media screen and (max-width:768px) {
   .header {
     flex-direction: column;
+    padding: 0.25rem 0;
   }
 
   .search {
     width: 90%;
+  }
+
+  .tags {
+    margin-top: 6rem;
   }
 }
