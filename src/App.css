@@ -22,7 +22,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  padding: 1rem 0;
   -webkit-app-region: drag;
   position: fixed;
   background-color: #a47ac3;
@@ -57,7 +56,6 @@ a:link {
   outline: none;
   text-align: center;
   width: 65%;
-  margin: 0.25rem;
   padding: 0.25rem;
   -webkit-app-region: no-drag;
 }
@@ -93,7 +91,7 @@ a:link {
   justify-content: center;
   overflow: auto;
   height: calc(100vh - 5rem);
-  margin-top: 5rem;
+  margin-top: 3rem;
   padding-top: 1rem;
   box-shadow: inset 0 0 .5rem 0 #0003;
 }
@@ -200,14 +198,13 @@ a:link {
 @media screen and (max-width:768px) {
   .header {
     flex-direction: column;
-    padding: 0.25rem 0;
   }
 
   .search {
-    width: 90%;
+    width: 95%;
   }
 
   .tags {
-    margin-top: 6rem;
+    margin-top: 4rem;
   }
 }
