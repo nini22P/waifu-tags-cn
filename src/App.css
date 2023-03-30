@@ -203,6 +203,7 @@ a:link {
 
   .search {
     width: 95%;
+    margin-top: 0.8rem;
   }
 
   .tagNum {
@@ -210,6 +211,6 @@ a:link {
   }
 
   .tags {
-    margin-top: 4rem;
+    margin-top: 4.8rem;
   }
 }
