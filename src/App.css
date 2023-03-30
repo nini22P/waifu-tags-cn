@@ -23,7 +23,7 @@ body {
   justify-content: space-evenly;
   -webkit-app-region: drag;
   position: fixed;
-  background-color: #a47ac3;
+  background-color: #fff;
   left: 0;
   top: 0;
   width: 100%;
@@ -150,6 +150,10 @@ a:link {
     background-color: #222;
   }
 
+  .header {
+    background-color: #222;
+  }
+
   .search {
     border: solid 2px hsla(275, 41%, 60%, 0.25);
     background-color: #222;
@@ -168,6 +172,10 @@ a:link {
 
   .search:focus::placeholder {
     color: #222;
+  }
+
+  .tagNum {
+    color: #bbb;
   }
 
   .tags {
