@@ -219,6 +219,7 @@ a:link {
   }
 
   .tags {
-    margin-top: 4.8rem;
+    margin-top: 5rem;
+    height: calc(100vh - 6rem);
   }
 }
