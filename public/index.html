@@ -25,10 +25,27 @@
   <script>
     navigator.serviceWorker.register("%PUBLIC_URL%/service-worker.js")
   </script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      background-color: #eee;
+      color: #222;
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+      html,
+      body {
+        background-color: #222;
+        color: #eee;
+      }
+    }
+  </style>
   <title>Waifu Tags CN</title>
 </head>
 
-<body style="margin: 0; background-color: #a47ac3;">
+<body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root">
     <div style="text-align: center;line-height: 100vh;user-select: none;">LOADING</div>
