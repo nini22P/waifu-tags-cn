@@ -37,6 +37,9 @@ a {
   text-decoration: none;
   /* width: 10rem; */
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a:hover {
@@ -45,6 +48,16 @@ a:hover {
 
 a:link {
   -webkit-app-region: no-drag;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  color: #666;
+}
+
+.icon:hover {
+  color: #000;
 }
 
 .search {
@@ -154,6 +167,14 @@ a:link {
   .header {
     background-color: #222;
     border-bottom: solid 2px hsla(0, 0%, 87%, 0.2);
+  }
+
+  .icon {
+    color: #bbb;
+  }
+
+  .icon:hover {
+    color: #eee;
   }
 
   .search {
